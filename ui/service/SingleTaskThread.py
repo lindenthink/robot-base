@@ -25,7 +25,6 @@ class SingleTaskThread(QThread):
         super().__init__()
         self.isStop = False
         self.mainWnd: MainWindow = mainWnd
-        self.taskType = None
         self.cfgMgr: ConfigManager = cfgMgr
         self.cfg = self.cfgMgr.single
 
