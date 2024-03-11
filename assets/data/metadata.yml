@@ -1,0 +1,14 @@
+ver: '0.1'
+name: 道天录
+code: DTL
+help: 'https://docs.qq.com/doc/DT0VtdnhBalRIdGVx'
+# 注意同一分组任务需保持相邻，选项类型：num,bool,checklist,select
+tasks:
+  -
+    name: 重启
+    type: 2
+    enable: True
+    state: 0
+    nextTime: 00:05
+    todoCount: 1
+    doneCount: 0

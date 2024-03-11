@@ -1,0 +1,51 @@
+=== 安装依赖
+基于python3.6版本开发，可在``C:\Users\\{username}\AppData\Roaming\pip\pip.ini``中配置镜像地址：
+```sh
+pip install -r requirements.txt
+```
+
+=== 编译配置
+* 添加data目录
+```python
+datas=[('assets/data', 'assets/data'), ('assets/templates/gm', 'assets/templates/gm'), ('assets/templates/wx', 'assets/templates/wx')],
+```
+* 生成spec/exe文件
+```sh
+pip install pyinstaller
+# 首次
+pyinstaller -F -i assets/data/logo.ico app.py -n 菩提思 --noconsole
+# 后续
+pyinstaller -D 菩提思.spec
+```
+
+=== 添加新依赖
+```sh
+pip install -r requirements.txt
+```
+
+=== 参考文档
+* PyQt：https://maicss.gitbook.io/pyqt-chinese-tutoral/pyqt6/introduction
+* 28天学会PyQt系列：https://blog.csdn.net/a_faint_hope?type=blog
+* easyocr：https://blog.csdn.net/qq13933506749/article/details/122481211
+* easyocr文档：https://www.jaided.ai/easyocr/documentation/
+* pywin32：http://timgolden.me.uk/pywin32-docs/contents.html
+* win32：https://learn.microsoft.com/zh-cn/windows/win32/api/wingdi/nf-wingdi-movetoex
+* 暂停和恢复程序： https://blog.csdn.net/laoli815/article/details/124980362
+* opencv：https://blog.csdn.net/qq_42791845/article/details/103700503/
+* 小程序抓包：https://www.zhihu.com/question/350183786
+* python生成exe：https://zhuanlan.zhihu.com/p/391464546
+* pycharm配置qt-designer：https://www.cnblogs.com/lauff/p/16693027.html
+* qt-designer介绍和入门：https://www.jianshu.com/p/5b063c5745d0
+* 借助QT输出日志：https://stackoverflow.com/questions/28655198/best-way-to-display-logs-in-pyqt
+* 不能连续调用win32gui.SetForegroundWindow：https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setforegroundwindow
+* QListWidget设置右键菜单：https://www.lmlphp.com/user/63064/article/item/794522/
+* 基于 PyQt5 的 Fluent Design 风格组件库Lhttps://github.com/zhiyiYo/PyQt-Fluent-Widgets
+* Pyinstaller打包发布经验总结：https://blog.csdn.net/weixin_42052836/article/details/82315118
+* pyinstaller打包后路径问题：https://pyinstaller.org/en/v3.3.1/runtime-information.html#
+* https://www.ico51.cn/
+* 微信小程序问题处理：https://docs.qq.com/doc/DRmROZXpBVmNxYURY
+* AES：https://blog.csdn.net/chouzhou9701/article/details/122019967
+* Charles微信小程序抓包：https://blog.csdn.net/baidu_28340727/article/details/123292820
+* Charles破解：https://www.zzzmode.com/mytools/charles/
+* 微信小程序反编译：https://blog.csdn.net/chunaiji008/article/details/125782691
+* 微信小程序开发文档：https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/env.html
