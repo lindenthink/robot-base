@@ -49,3 +49,4 @@ pip install -r requirements.txt
 * Charles破解：https://www.zzzmode.com/mytools/charles/
 * 微信小程序反编译：https://blog.csdn.net/chunaiji008/article/details/125782691
 * 微信小程序开发文档：https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/env.html
+* Win32 API：https://learn.microsoft.com/zh-cn/windows/win32/api/winuser/nf-winuser-unhookwindowshookex

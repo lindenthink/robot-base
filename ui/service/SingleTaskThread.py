@@ -3,10 +3,12 @@ import time
 import traceback
 from enum import Enum
 
-from PyQt6.QtCore import QThread
+import win32con
+from PyQt6.QtCore import QThread, Qt
 
 from common import my_mouse
 from common.my_cfg import ConfigKey, ConfigManager
+from common.my_event import MouseListener
 from gm import gm_func
 from ui import MainWindow
 
@@ -20,13 +22,15 @@ class SingleKeyEnum(Enum):
 
 class SingleTaskThread(QThread):
     single_tabs = [None, '鼠标连击']
+    mouse_listener = None
 
     def __init__(self, mainWnd, cfgMgr):
         super().__init__()
         self.isStop = False
         self.mainWnd: MainWindow = mainWnd
         self.cfgMgr: ConfigManager = cfgMgr
-        self.cfg = self.cfgMgr.single
+        if self.cfgMgr is not None:
+            self.cfg = self.cfgMgr.single
 
     def init_1(self):
         key = SingleKeyEnum.click.value
@@ -38,6 +42,28 @@ class SingleTaskThread(QThread):
             self.mainWnd.spin_tools_click_x.setValue(x)
             self.mainWnd.spin_tools_click_y.setValue(y)
             self.mainWnd.spin_tools_click_intv.setValue(intv)
+
+    def onEmitLoc(self, x, y):
+        self.mainWnd.spin_tools_click_x.setValue(x)
+        self.mainWnd.spin_tools_click_y.setValue(y)
+
+    def listen_loc(self, vk_code, x, y):
+        if vk_code == win32con.WM_MOUSEMOVE:
+            self.mainWnd.locSignal.emit(x, y)
+        elif vk_code == win32con.WM_LBUTTONUP:
+            self.mouse_listener.stop()
+            self.mainWnd.pushButton.setEnabled(True)
+
+    def onRunLoc(self):
+        self.mainWnd.pushButton.setEnabled(False)
+        self.mainWnd.emitLeftTop()
+        self.mouse_listener = MouseListener(self.listen_loc)
+        self.mouse_listener.start()
+
+    def bind_1(self):
+        self.mainWnd.pushButton.clicked.connect(self.onRunLoc)
+        # 信号只能在主窗口中定义
+        self.mainWnd.locSignal.connect(self.onEmitLoc)
 
     def run_1(self):
         x = self.mainWnd.spin_tools_click_x.value()
@@ -61,6 +87,13 @@ class SingleTaskThread(QThread):
         for i in range(1, len(self.single_tabs)):
             if hasattr(self, f'init_{i}'):
                 func = getattr(self, f'init_{i}')
+                func()
+
+    # 动态绑定
+    def bind(self):
+        for i in range(1, len(self.single_tabs)):
+            if hasattr(self, f'bind_{i}'):
+                func = getattr(self, f'bind_{i}')
                 func()
 
     # 动态执行

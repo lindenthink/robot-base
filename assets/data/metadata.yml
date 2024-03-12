@@ -1,6 +1,6 @@
 ver: '0.1'
 name: 模板
-code: TMP
+code: DTL
 help: 'https://docs.qq.com/doc/DT0VtdnhBalRIdGVx'
 # 注意同一分组任务需保持相邻，选项类型：num,bool,checklist,select
 tasks:

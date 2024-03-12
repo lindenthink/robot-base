@@ -25,11 +25,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     iconSignal = pyqtSignal(IconTypeEnum, str)
     resetSignal = pyqtSignal()
     loginSignal = pyqtSignal()
+    lefttopSignal = pyqtSignal()
+    locSignal = pyqtSignal(int, int)
 
     isRun = False
     isSingleRun = False
 
     loginInfo = LoginInfo()
+    singleCfgThread = None
 
     def __init__(self):
         super().__init__()
@@ -149,9 +152,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.logoutSignal.connect(self.onLogout)
         self.resetSignal.connect(self.resetAllIcon)
         self.loginSignal.connect(self.onLogin)
+        self.lefttopSignal.connect(self.onLeftTop)
 
         self.bindMenuEvent()
         self.bindTabTaskEvent()
+        self.singleCfgThread = SingleTaskThread(self, None)
+        # 必须是主窗口持有的对象才可被绑定，否则会失效
+        self.singleCfgThread.bind()
         self.btn_run.clicked.connect(self.onRun)
         self.btn_stop.clicked.connect(self.onStop)
 
@@ -215,7 +222,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.initTaskList()
 
         # 初始化其他任务视图
-        SingleTaskThread(self, self.cfgMgr).init()
+        self.singleCfgThread.cfgMgr = self.cfgMgr
+        self.singleCfgThread.cfg = self.cfgMgr.single
+        self.singleCfgThread.init()
 
         logging.info(f'欢迎{self.loginInfo.username}，您的账号于{self.loginInfo.expireTime}到期，游戏愉快 (*^▽^*)')
         # 触发版本更新提示
@@ -399,6 +408,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def emitReset(self):
         self.resetSignal.emit()
+
+    def emitLeftTop(self):
+        self.lefttopSignal.emit()
 
     def appendLog(self, text):
         self.text_log.appendPlainText(text)
