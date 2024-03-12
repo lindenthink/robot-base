@@ -4,7 +4,7 @@ import traceback
 from enum import Enum
 
 import win32con
-from PyQt6.QtCore import QThread, Qt
+from PyQt6.QtCore import QThread
 
 from common import my_mouse
 from common.my_cfg import ConfigKey, ConfigManager
