@@ -134,7 +134,6 @@ class MouseListener(QThread):
     def __init__(self, onTrigger):
         super().__init__()
         self.onTrigger = onTrigger
-        self.e = MyEvent(self.onTrigger)
 
     def run(self):
         self.e = MyEvent(self.onTrigger)
