@@ -21,7 +21,7 @@ class SingleKeyEnum(Enum):
 
 
 class SingleTaskThread(QThread):
-    single_tabs = [None, '鼠标连击']
+    single_tabs = [None, '鼠标连点']
     mouse_listener = None
 
     def __init__(self, mainWnd, cfgMgr):
@@ -47,7 +47,7 @@ class SingleTaskThread(QThread):
         self.mainWnd.spin_tools_click_x.setValue(x)
         self.mainWnd.spin_tools_click_y.setValue(y)
 
-    def listen_loc(self, vk_code, x, y):
+    def listenLoc(self, vk_code, x, y):
         if vk_code == win32con.WM_MOUSEMOVE:
             self.mainWnd.locSignal.emit(x, y)
         elif vk_code == win32con.WM_LBUTTONUP:
@@ -57,7 +57,7 @@ class SingleTaskThread(QThread):
     def onRunLoc(self):
         self.mainWnd.pushButton.setEnabled(False)
         self.mainWnd.emitLeftTop()
-        self.mouse_listener = MouseListener(self.listen_loc)
+        self.mouse_listener = MouseListener(self.listenLoc)
         self.mouse_listener.start()
 
     def bind_1(self):
@@ -116,5 +116,5 @@ class SingleTaskThread(QThread):
     def stop(self):
         self.isStop = True
 
-    def current_mode(self):
+    def currentMode(self):
         return self.cfgMgr.getArg(ConfigKey.args_mode)
