@@ -3,8 +3,8 @@ import time
 import traceback
 from enum import Enum
 
-import win32con
 from PyQt6.QtCore import QThread
+from pynput.mouse import Button
 
 from common import my_mouse
 from common.my_cfg import ConfigKey, ConfigManager
@@ -47,17 +47,18 @@ class SingleTaskThread(QThread):
         self.mainWnd.spin_tools_click_x.setValue(x)
         self.mainWnd.spin_tools_click_y.setValue(y)
 
-    def listenLoc(self, vk_code, x, y):
-        if vk_code == win32con.WM_MOUSEMOVE:
-            self.mainWnd.locSignal.emit(x, y)
-        elif vk_code == win32con.WM_LBUTTONUP:
+    def onMouseMove(self, x, y):
+        self.mainWnd.locSignal.emit(x, y)
+
+    def onMouseClick(self, x, y, button, pressed):
+        if button == Button.left and pressed:
             self.mouse_listener.stop()
             self.mainWnd.pushButton.setEnabled(True)
 
     def onRunLoc(self):
         self.mainWnd.pushButton.setEnabled(False)
         self.mainWnd.emitLeftTop()
-        self.mouse_listener = MouseListener(self.listenLoc)
+        self.mouse_listener = MouseListener(on_move=self.onMouseMove, on_click=self.onMouseClick)
         self.mouse_listener.start()
 
     def bind_1(self):

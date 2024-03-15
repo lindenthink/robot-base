@@ -42,6 +42,7 @@ pip install -r requirements.txt
 * 基于 PyQt5 的 Fluent Design 风格组件库Lhttps://github.com/zhiyiYo/PyQt-Fluent-Widgets
 * Pyinstaller打包发布经验总结：https://blog.csdn.net/weixin_42052836/article/details/82315118
 * pyinstaller打包后路径问题：https://pyinstaller.org/en/v3.3.1/runtime-information.html#
+* Pyinstaller打包发布经验总结配合使用UPX压缩：https://blog.csdn.net/JiuShu110/article/details/132625538 https://github.com/upx/upx/releases/tag/v4.2.2
 * https://www.ico51.cn/
 * 微信小程序问题处理：https://docs.qq.com/doc/DRmROZXpBVmNxYURY
 * AES：https://blog.csdn.net/chouzhou9701/article/details/122019967
