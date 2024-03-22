@@ -31,7 +31,7 @@
     </property>
     <widget class="QWidget" name="tab_task">
      <attribute name="title">
-      <string>任务计划</string>
+      <string>任务</string>
      </attribute>
      <widget class="QGroupBox" name="group_task">
       <property name="geometry">
@@ -43,7 +43,7 @@
        </rect>
       </property>
       <property name="title">
-       <string>任务计划</string>
+       <string>任务配置</string>
       </property>
       <widget class="QPushButton" name="btn_recommend">
        <property name="geometry">
@@ -163,165 +163,813 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_tools">
+    <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>鼠标连点</string>
+      <string>妖窟</string>
      </attribute>
-     <widget class="QGroupBox" name="grp_tools_click">
+     <widget class="Line" name="line_9">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>550</width>
-        <height>275</height>
+        <x>300</x>
+        <y>15</y>
+        <width>15</width>
+        <height>250</height>
        </rect>
       </property>
-      <property name="title">
-       <string>鼠标连点</string>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <widget class="QSpinBox" name="spin_tools_click_x">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>360</x>
-         <y>20</y>
-         <width>51</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="maximum">
-        <number>5000</number>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="spin_tools_click_y">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>20</y>
-         <width>51</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-       <property name="maximum">
-        <number>5000</number>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="spin_tools_click_intv">
-       <property name="geometry">
-        <rect>
-         <x>360</x>
-         <y>60</y>
-         <width>61</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="minimum">
-        <number>200</number>
-       </property>
-       <property name="maximum">
-        <number>10000</number>
-       </property>
-       <property name="singleStep">
-        <number>100</number>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>320</x>
-         <y>23</y>
-         <width>31</width>
-         <height>16</height>
-        </rect>
-       </property>
+     </widget>
+     <widget class="QLabel" name="lab_boss">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>291</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#00aaff;&quot;&gt;使用说明：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;1. 执行前请将需要检测妖窟BOSS的&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ff0000;&quot;&gt;微信聊天窗口拖拽独立&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;出来，窗口可以被遮挡&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#55aaff;&quot;&gt;；&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;2. 使用机缘刷材料为&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ff0000;&quot;&gt;独立配置&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;，该模式需先进入妖窟BOSS界面后再开始执行，机缘不富裕玩家请慎用该模式；&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;3. 上车之后会&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ff0000;&quot;&gt;立即退出&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;，无需担心秒车！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_boss_use_money">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>195</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>使用机缘刷材料</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_boss_type_crab">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>93</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>蟹</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spin_boss_farm_intv">
+      <property name="geometry">
+       <rect>
+        <x>431</x>
+        <y>156</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>5</number>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spin_boss_count">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>23</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>10</number>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_boss_type_bird">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>93</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>鸟</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>160</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>刷材料间隔（分钟）</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_boss_count">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>25</y>
+        <width>55</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>上车次数：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_boss_qlty">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>60</y>
+        <width>55</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>选择品质：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_boss_type">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>95</y>
+        <width>55</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>选择类型：</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_boss_farm">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>125</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>开启刷材料模式</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_boss_qlty_hard">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>58</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>难</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_boss_type_phoenix">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>93</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>凤</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_boss_type_snake">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>93</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>蛇</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_boss_qlty_mid">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>58</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>中</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>斗技</string>
+     </attribute>
+     <widget class="Line" name="line_8">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>15</y>
+        <width>15</width>
+        <height>250</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_ctd">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>291</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#00aaff;&quot;&gt;使用说明：&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;1. 请进入斗技界面后再开始执行；&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;2. 默认挑战斗技积分最低的即第三个，取消则挑战第一个；&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;3. 斗技活动期间快速达标可开启&amp;quot;立即退出&amp;quot;。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_ctd_rightexit">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>125</y>
+        <width>135</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>立即退出</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_ctd_fight3rd">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>60</y>
+        <width>120</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>优先挑战低积分</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_ctd_3speed">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>95</y>
+        <width>80</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>三倍速战斗</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_ctd_count">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>25</y>
+        <width>55</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>战斗次数：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spin_ctd_count">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>25</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>500</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>铸造</string>
+     </attribute>
+     <widget class="Line" name="line_7">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>15</y>
+        <width>15</width>
+        <height>250</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_fdry">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>291</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#00aaff;&quot;&gt;使用说明：&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;1. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ff0000;&quot;&gt;执行前请进入铸剑池并选择好铸造弟子，同时保证背包空间充足&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#55aaff;&quot;&gt;；&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;2. 每轮最多铸造50件装备，结合背包空间余量设置合理分解参数；&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;3. 选择铸造等级后只会使用普通材料铸造分解，一种部位材料用完后会&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ff0000;&quot;&gt;自动切换&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;到其他部位。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_fdry_level">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>21</y>
+        <width>69</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <item>
        <property name="text">
-        <string>坐标：</string>
+        <string>1级</string>
        </property>
-      </widget>
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>320</x>
-         <y>60</y>
-         <width>31</width>
-         <height>16</height>
-        </rect>
-       </property>
+      </item>
+      <item>
        <property name="text">
-        <string>间隔：</string>
+        <string>2级</string>
        </property>
-      </widget>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>60</y>
-         <width>31</width>
-         <height>16</height>
-        </rect>
-       </property>
+      </item>
+      <item>
        <property name="text">
-        <string>毫秒</string>
+        <string>3级</string>
        </property>
-      </widget>
-      <widget class="Line" name="line_4">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>20</y>
-         <width>15</width>
-         <height>250</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="QLabel" name="lab_boss_3">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>291</width>
-         <height>91</height>
-        </rect>
-       </property>
+      </item>
+      <item>
        <property name="text">
-        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <string>4级</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5级</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>6级</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>7级</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="lab_fdry_qlty">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>60</y>
+        <width>55</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>分解品质：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spin_fdry_round">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>94</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>10</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_fdry_round_2">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>95</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>轮分解一次</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_fdry_level">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>25</y>
+        <width>55</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>铸造等级：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_fdry_round">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>95</y>
+        <width>55</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>分解控制：</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_fdry_qlty">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>59</y>
+        <width>91</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>绿色及以下</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>蓝色及以下</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>紫色及以下</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>橙色及以下</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>红色及以下</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>广告</string>
+     </attribute>
+     <widget class="QLabel" name="lab_ad">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>280</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="Line" name="line_5">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>15</y>
+        <width>15</width>
+        <height>250</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="check_ad_timesand">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>25</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>使用时幻沙</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>密令</string>
+     </attribute>
+     <widget class="Line" name="line_6">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>15</y>
+        <width>15</width>
+        <height>250</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_boss_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>291</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#00aaff;&quot;&gt;使用说明：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;位于&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#ff0000;&quot;&gt;游戏主界面&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;后执行， 每周密令将在每周四不定时更新且于下周四零点失效。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>25</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>每周密令</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_2">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>60</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>普通密令</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_tools">
+     <attribute name="title">
+      <string>连点</string>
+     </attribute>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>60</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>间隔：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>25</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>坐标：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spin_tools_click_intv">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>58</y>
+        <width>61</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>200</number>
+      </property>
+      <property name="maximum">
+       <number>10000</number>
+      </property>
+      <property name="singleStep">
+       <number>100</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spin_tools_click_y">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>22</y>
+        <width>51</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="maximum">
+       <number>5000</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spin_tools_click_x">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>22</y>
+        <width>51</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>5000</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>60</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>毫秒</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_4">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>15</y>
+        <width>15</width>
+        <height>250</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>21</y>
+        <width>41</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>定位</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lab_boss_3">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>291</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#00aaff;&quot;&gt;使用说明：&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;点击右栏&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ff0000;&quot;&gt;定位&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;按钮后移动鼠标到指定位置然再&lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#ff0000;&quot;&gt;左键单击&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;就&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;会自动记录当前位置，接下来可以&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;直接&lt;/span&gt;&lt;span style=&quot; font-size:10pt; color:#00aaff;&quot;&gt;运行鼠标连点。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>490</x>
-         <y>19</y>
-         <width>41</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>定位</string>
-       </property>
-      </widget>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
      </widget>
     </widget>
    </widget>

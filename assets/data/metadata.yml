@@ -1,4 +1,4 @@
-ver: '0.1'
+ver: '1.0'
 name: 道天录
 code: DTL
 help: 'https://docs.qq.com/doc/DT0VtdnhBalRIdGVx'
@@ -9,6 +9,267 @@ tasks:
     type: 2
     enable: True
     state: 0
-    nextTime: 00:05
+    nextTime: 00:15
     todoCount: 1
     doneCount: 0
+  -
+    name: 心事
+    type: -1
+    enable: True
+    state: 0
+    doneCount: 0
+  -
+    name: 访客
+    type: -1
+    enable: True
+    state: 0
+    doneCount: 0
+  -
+    name: 游历
+    type: 1
+    enable: True
+    state: 0
+    interval: 480
+    doneCount: 0
+    nextTime:
+    options:
+      -
+        name: 机缘购买次数
+        type: num
+        value: 0
+        desc: 首次为免费领取
+  -
+    name: 突破
+    type: 1
+    enable: True
+    state: 0
+    interval: 120
+    doneCount: 0
+    nextTime:
+    options:
+      -
+        name: 使用突破丹
+        type: bool
+        value: True
+        desc: 自动吃最高级别丹药
+  -
+    name: 礼包领取
+    group: 礼包
+    type: 0
+    enable: True
+    state: 0
+    todoCount: 1
+    doneCount: 0
+  -
+    name: 游戏圈礼包领取
+    group: 礼包
+    type: 0
+    enable: True
+    state: 0
+    todoCount: 1
+    doneCount: 0
+  - name: 购买魂殿礼包
+    group: 礼包
+    type: 0
+    enable: True
+    state: 0
+    todoCount: 1
+    doneCount: 0
+    options:
+      - name: 领取类型
+        type: checklist
+        items: ['万能魂石', '挑战令', '轮回异宝箱', '红色招募令', '鹿矫灵仙芝']
+        value: ['挑战令']
+  -
+    name: 日常炼丹
+    group: 每日任务
+    enable: True
+    type: 0
+    state: 0
+    todoCount: 1
+    doneCount: 0
+  -
+    name: 藏经阁研习
+    group: 每日任务
+    type: 1
+    interval: 480
+    enable: True
+    state: 0
+    nextTime:
+    doneCount: 0
+    options:
+      -
+        name: 自动领取炼丹
+        type: bool
+        value: True
+        desc: 存在炼丹完成按钮时无法显示研习按钮
+  -
+    name: 招收弟子
+    group: 每日任务
+    type: 2
+    enable: True
+    state: 0
+    nextTime: 00:16
+    todoCount: 1
+    doneCount: 0
+    notice: 执行时间要在重启之后
+    options:
+      - name: 自动派驻
+        type: bool
+        value: True
+        desc: 默认仅保留红弟子
+  -
+    name: 分享游戏
+    group: 每日任务
+    type: 0
+    enable: True
+    state: 0
+    todoCount: 1
+    doneCount: 0
+  -
+    name: 领取锁妖塔灵石
+    group: 每日任务
+    type: 0
+    enable: True
+    state: 0
+    todoCount: 1
+    doneCount: 0
+    options:
+      - name: 自动扫荡
+        type: bool
+        value: True
+        desc: 仅使用免费次数扫荡所有开放的塔
+
+  - name: 悬赏
+    group: 每日任务
+    enable: True
+    type: 1
+    interval: 240
+    state: 0
+    doneCount: 0
+    options:
+      - name: 接取星数
+        type: num
+        value: 4
+      - name: 使用悬赏令
+        type: bool
+        value: False
+      - name: 使用机缘刷新
+        type: bool
+        value: False
+      - name: 优先接反贼
+        type: bool
+        value: False
+        desc: 启用时不受星数限制
+      - name: 只接反贼
+        type: bool
+        value: False
+  -
+    name: 掌门功法使用
+    group: 掌门
+    type: 1
+    enable: True
+    state: 0
+    interval: 240
+    doneCount: 0
+    nextTime:
+  -
+    name: 掌门修为突破
+    group: 掌门
+    type: -1
+    enable: True
+    state: 0
+    doneCount: 0
+  -
+    name: 掌门功法升级
+    group: 掌门
+    type: -1
+    enable: True
+    state: 0
+    doneCount: 0
+  -
+    name: 妖王
+    group: BOSS
+    type: -1
+    state: 0
+    enable: True
+    todoCount: 3
+    doneCount: 0
+    nextTime: 09:00
+    options:
+      -
+        name: 是否3倍速
+        type: bool
+        value: True
+  -
+    name: 妖窟
+    group: BOSS
+    type: -1
+    state: 0
+    enable: True
+    todoCount: 3
+    doneCount: 0
+#    nextTime: 08:00
+    notice: 只刷3次免费洞虚BOSS，上车后会立即退出
+    options:
+      -
+        name: 选择品质
+        type: checklist
+        items: ['难', '中']
+        value: ['难']
+      - name: 选择类型
+        type: checklist
+        items: ['鸟', '凤', '蟹', '鱼', '蛇']
+        value: ['鸟', '凤', '蟹', '鱼']
+  -
+    name: 红包
+    group: 仙盟
+    type: -1
+    enable: True
+    state: 0
+    doneCount: 0
+  -
+    name: 协助
+    code: assist
+    group: 仙盟
+    type: -1
+    enable: True
+    state: 0
+    todoCount: 30
+    doneCount: 0
+    options:
+      -
+        name: 自动膜拜
+        type: bool
+        value: True
+        desc: 最后一次协助后触发
+  -
+    name: 镇妖涧
+    group: 仙盟
+    type: 0
+    state: 0
+    enable: True
+    todoCount: 1
+    doneCount: 0
+  -
+    name: 挖矿
+    group: 仙盟
+    enable: True
+    type: 1
+    state: 0
+    interval: 60
+    doneCount: 0
+    nextTime:
+    options:
+      - name: 同时占矿数
+        type: num
+        value: 3
+        desc: 自动刷新抢占，若当前有矿无法占领则停止刷新
+  - name: 星域矿脉
+    group: 限时活动
+    type: 1
+    enable: False
+    state: 0
+    interval: 15
+    doneCount: 0
+    nextTime:

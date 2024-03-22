@@ -55,8 +55,10 @@ def open_mini(mode=my_window.MODE_FG):
         # 可能会导致失败：(5, 'SetForegroundWindow', '拒绝访问。')
         if mode == my_window.MODE_FG:
             my_window.force_focus(sub_wnd)
-        loc = my_window.find_click(hwnd=sub_wnd, template_path=con.ID_MINI_GM, mode=mode)
+        loc = my_window.find_any_pic(hwnd=sub_wnd, template_paths=con.ID_MINI_GM_LIST, mode=mode)
         if loc is not None:
+            my_mouse.left_click(sub_wnd, loc)
+            sleep(1)
             my_window.close(sub_wnd)
             sleep(0.5)
     my_window.minimize(wx_wnd)

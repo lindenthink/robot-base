@@ -33,7 +33,7 @@ BTN_MOMENT_RECV = join('btn_moment_recv')
 ID_MOMENT_SUCCESS = join('id_moment_success')
 
 # 指定待打开小程序图标
-ID_MINI_GM = join('id_mini_gm')
+ID_MINI_GM_LIST = [join('id_mini_gm'), join('id_mini_gm2')]
 
 # 关闭广告
 LOC_AD_CLOSE = (410, 70)

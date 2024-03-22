@@ -99,11 +99,13 @@ def clearWorkDir():
         rmtree(target)
 
 
-def retry(func, interval=5, **kwargs):
-    count = 0
-    while not func(**kwargs) and count < interval:
+def retry(func, count=5, **kwargs):
+    num = 0
+    result = func(**kwargs)
+    while not result and num < count:
         time.sleep(1)
         count += 1
+    return result
 
 
 def sleep(seconds=1, delay_factor=1):

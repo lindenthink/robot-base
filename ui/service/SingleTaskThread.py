@@ -21,7 +21,7 @@ class SingleKeyEnum(Enum):
 
 
 class SingleTaskThread(QThread):
-    single_tabs = [None, '鼠标连点']
+    single_tabs = [None, '妖窟材料', '斗技', '铸造分解', '观看广告', '兑换密令', '鼠标连点']
     mouse_listener = None
 
     def __init__(self, mainWnd, cfgMgr):
@@ -32,7 +32,7 @@ class SingleTaskThread(QThread):
         if self.cfgMgr is not None:
             self.cfg = self.cfgMgr.single
 
-    def init_1(self):
+    def init_6(self):
         key = SingleKeyEnum.click.value
         if key in self.cfg:
             click_cfg = self.cfg[SingleKeyEnum.click.value]
@@ -61,12 +61,12 @@ class SingleTaskThread(QThread):
         self.mouse_listener = MouseListener(on_move=self.onMouseMove, on_click=self.onMouseClick)
         self.mouse_listener.start()
 
-    def bind_1(self):
+    def bind_6(self):
         self.mainWnd.pushButton.clicked.connect(self.onRunLoc)
         # 信号只能在主窗口中定义
         self.mainWnd.locSignal.connect(self.onEmitLoc)
 
-    def run_1(self):
+    def run_6(self):
         x = self.mainWnd.spin_tools_click_x.value()
         y = self.mainWnd.spin_tools_click_y.value()
         intv = self.mainWnd.spin_tools_click_intv.value()

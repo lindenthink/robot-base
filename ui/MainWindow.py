@@ -40,11 +40,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.initUi()
         self.initData()
         self.bindEvent()
-
-        checkThread = CheckThread(self)
-        checkThread.start()
         self.show()
         _thread.start_new_thread(self.loginSignal.emit, ())
+
 
     @staticmethod
     def onRightTop():
@@ -227,6 +225,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.singleCfgThread.init()
 
         logging.info(f'欢迎{self.loginInfo.username}，您的账号于{self.loginInfo.expireTime}到期，游戏愉快 (*^▽^*)')
+        checkThread = CheckThread(self)
+        checkThread.start()
         # 触发版本更新提示
         self.onCheckVersion(active=False)
 
