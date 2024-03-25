@@ -913,21 +913,21 @@ def tower_gift(hwnd, mode, sweep=True):
 # 斗技
 def contend(hwnd=0, count=3, is_triple=True, fight_3rd=True, right_exit=False, mode=my_window.MODE_BG, caller=None):
     if not my_util.in_progress('08:00', '22:00'):
-        log(caller, '未在活动时间范围内，忽略处理')
+        logging.info('未在活动时间范围内，忽略处理')
         return
     loc = my_window.find_pic(hwnd=hwnd, template_path=con.ID_DOUJI_HOME, mode=mode)
     if loc is None:
-        log(caller, '未处于斗技界面，忽略处理')
+        logging.info('未处于斗技界面，忽略处理')
         return
 
     for i in range(0, count):
         if caller is not None:
             if caller.isStop:
                 return
-            log(caller, f'开始执行第{i + 1}次斗技')
+            logging.info(f'开始执行第{i + 1}次斗技')
         # 增加过程中时间校验
         if not my_util.in_progress('08:00', '22:00'):
-            log(caller, '未在活动时间范围内，忽略处理')
+            logging.info('未在活动时间范围内，忽略处理')
             return
         # 挑战
         my_mouse.left_click(hwnd, (220, 705))
@@ -940,7 +940,7 @@ def contend(hwnd=0, count=3, is_triple=True, fight_3rd=True, right_exit=False, m
         # 检测是否进入战斗画面
         loc = my_window.wait_appear(hwnd=hwnd, template_path=con.BTN_RETREAT, timeout=20, mode=mode)
         if loc is None:
-            log(caller, '等待进入战斗画面超时，忽略处理')
+            logging.info('等待进入战斗画面超时，忽略处理')
             continue
         time.sleep(1)
         if right_exit:
@@ -953,15 +953,6 @@ def contend(hwnd=0, count=3, is_triple=True, fight_3rd=True, right_exit=False, m
         loc = my_window.wait_appear(hwnd=hwnd, template_path=con.ID_DOUJI_FINISHED, timeout=120, mode=mode)
         my_mouse.left_click(hwnd, (220, 650))
         time.sleep(2)
-
-
-# 记录日志
-def log(caller=None, msg=None):
-    if caller is not None:
-        caller.status_log(msg=msg)
-        return
-    logging.info(msg)
-
 
 # 文本输入
 # 无法实现组合按键
@@ -1137,15 +1128,15 @@ def single_boss(hwnd=0, mode=my_window.MODE_BG, caller=None, count=3, qualities=
         if i <= count:
             result = boss(hwnd, mode, template_paths, True, caller=caller)
             if result:
-                log(caller, f'执行完成，已成功上车{i}次')
+                logging.info(f'执行完成，已成功上车{i}次')
                 i += 1
         if farm:
             now = datetime.now()
             if now > next_time:
-                log(caller, f'开始执行刷材料...')
+                logging.info(f'开始执行刷材料...')
                 farm = boss_farm(hwnd, mode, caller=caller)
                 next_time = my_util.addMinutes(now, farm_interval)
-                log(caller, f'刷材料执行完成，下次执行时间：{my_util.fmtDateTime(next_time)}')
+                logging.info(f'刷材料执行完成，下次执行时间：{my_util.fmtDateTime(next_time)}')
         if caller.isStop:
             break
 
@@ -1169,7 +1160,7 @@ def boss(hwnd=0, mode=my_window.MODE_BG, template_paths=None, use_ticket=False, 
         if not check_share(wx, loc):
             continue
         target_loc = loc
-        log(caller, f'微信群聊<{wxs[wx]}>存在目标BOSS，开始执行上车')
+        logging.info(f'微信群聊<{wxs[wx]}>存在目标BOSS，开始执行上车')
         my_mouse.left_click(wx, (loc[0] + 100, loc[1] + 100))
         time.sleep(0.5)
         # 先判断是否进入BOSS界面
@@ -1178,20 +1169,20 @@ def boss(hwnd=0, mode=my_window.MODE_BG, template_paths=None, use_ticket=False, 
         if loc is None:
             loc = my_window.find_pic(hwnd=hwnd, mode=mode, template_path=con.ID_BOSS_NONE)
             if loc is not None:
-                log(caller, '检测到BOSS不存在提示，忽略处理')
+                logging.info('检测到BOSS不存在提示，忽略处理')
                 my_mouse.left_click(hwnd, (220, 525))
                 time.sleep(1)
                 delete_share(hwnd, wx, target_loc)
                 continue
             else:
-                log(caller, '等待进入妖窟超时，忽略处理')
+                logging.info('等待进入妖窟超时，忽略处理')
                 continue
         # 检测是否使用道具
         if not use_ticket:
             time.sleep(0.5)
             loc = my_window.find_pic(hwnd=hwnd, mode=mode, template_path=con.ID_BOSS_TICKET)
             if loc is not None:
-                log(caller, '检测到免费次数已用完且不使用镇魔令，忽略处理')
+                logging.info('检测到免费次数已用完且不使用镇魔令，忽略处理')
                 rightdown_exit(hwnd)
                 return True
         my_mouse.left_click(hwnd, (120, 790))
@@ -1253,14 +1244,14 @@ def money_farm(hwnd, mode=None, caller=None):
             break
         loc = my_window.find_pic(hwnd, mode, template_path=con.ID_BOSS_JIANGCHI)
         if loc is None:
-            log(caller, '当前不处于妖窟模式界面，忽略处理')
+            logging.info('当前不处于妖窟模式界面，忽略处理')
             return
         loc = my_window.find_pic(hwnd, mode, template_path=con.ID_BOSS_CHOUJIANG, do_capture=False)
         if loc is not None:
-            log(caller, '已进入抽奖环节，停止处理')
+            logging.info('已进入抽奖环节，停止处理')
             rightdown_exit(hwnd)
             return
-        log(caller, f'开始执行第{count}次机缘刷材料')
+        logging.info(f'开始执行第{count}次机缘刷材料')
         loc_taofa = my_window.find_any_pic(hwnd=hwnd, mode=mode, template_paths=con.ID_BOSS_TAOFA_LIST,
                                            do_capture=False)
         if loc_taofa is None:
@@ -1286,7 +1277,7 @@ def money_farm(hwnd, mode=None, caller=None):
 
 # 刷材料
 def boss_farm(hwnd, mode=None, caller=None):
-    log(caller, '开始搜集妖窟BOSS材料')
+    logging.info('开始搜集妖窟BOSS材料')
     # 检查所在面板
     loc = my_window.find_pic(hwnd, mode, template_path=con.ID_BOSS_YAOKU)
     if loc is None:
@@ -1295,7 +1286,7 @@ def boss_farm(hwnd, mode=None, caller=None):
             my_mouse.left_click(hwnd, (75, 95))
             time.sleep(2)
         else:
-            log(caller, '当前不处于主页/妖窟页，忽略处理')
+            logging.info('当前不处于主页/妖窟页，忽略处理')
             return False
     page_size = 6
     line_height = 70
@@ -1304,7 +1295,7 @@ def boss_farm(hwnd, mode=None, caller=None):
     while True:
         loc = my_window.find_click(hwnd, mode, template_path=con.ID_BOSS_XIEZHAN)
         if loc is None:
-            log(caller, '未发现协战入口，停止处理')
+            logging.info('未发现协战入口，停止处理')
             break
         if count > page_size:
             my_mouse.left_drag(hwnd, (200, 550), (150, 550 - line_height))
@@ -1329,7 +1320,7 @@ def boss_farm(hwnd, mode=None, caller=None):
         rightdown_exit(hwnd)
         count += 1
     exit_travel(hwnd, mode)
-    log(caller, '完成搜集妖窟BOSS材料')
+    logging.info('完成搜集妖窟BOSS材料')
     return True
 
 
@@ -1392,11 +1383,11 @@ def union_exit(hwnd, mode=my_window.MODE_BG):
 def foundry(hwnd, level=4, mode=my_window.MODE_BG, caller=None, dec_round=3, dec_qlty=2):
     loc = my_window.find_pic(hwnd, template_path=con.ID_ZHULIAN_VIEW, mode=mode)
     if loc is None:
-        log(caller, '未进入铸炼界面，本次忽略处理')
+        logging.info('未进入铸炼界面，本次忽略处理')
         return
     loc = my_window.find_pic_multi(hwnd, template_path=con.ID_ZHULIAN_NO_WORKER, mode=mode)
     if len(loc) == 2:
-        log(caller, '检测到未指派弟子，本次忽略处理')
+        logging.info('检测到未指派弟子，本次忽略处理')
         return
     # 获取等级对应坐标
     l_x, l_y = con.LOC_ZHULIAN_LEVEL_8
@@ -1418,14 +1409,14 @@ def foundry(hwnd, level=4, mode=my_window.MODE_BG, caller=None, dec_round=3, dec
                 my_mouse.left_click(hwnd, (200, 540))
                 time.sleep(1)
                 break
-            log(caller, f'开始第{count + 1}轮装备铸造')
+            logging.info(f'开始第{count + 1}轮装备铸造')
             my_mouse.left_click(hwnd, con.LOC_ZHULIAN_2)
             time.sleep(1)
             my_mouse.left_click(hwnd, con.LOC_ZHULIAN_CONFIRM)
             time.sleep(1)
             loc = my_window.wait_appear(hwnd=hwnd, template_path=con.ID_ZHULIAN_ING, mode=mode)
             if loc is None:
-                log(caller, '超时未进入铸炼中界面，本次忽略')
+                logging.info('超时未进入铸炼中界面，本次忽略')
                 continue
             # 快速铸造
             loc = my_window.wait_click(hwnd=hwnd, template_path=con.BTN_QUICK_ZHULIAN, mode=mode)
@@ -1433,14 +1424,14 @@ def foundry(hwnd, level=4, mode=my_window.MODE_BG, caller=None, dec_round=3, dec
             count += 1
             # 分解，防止背包中超过1000件无法继续铸造
             if count % dec_round == 0:
-                log(caller, '开始执行装备分解')
+                logging.info('开始执行装备分解')
                 my_mouse.left_click(hwnd, (200, 540))
                 time.sleep(1)
                 foundry_dec(hwnd, level=level, dec_qlty=dec_qlty)
                 foundry_select(hwnd, tp=tp, drop_count=drop_count, loc=(l_x, l_y))
 
     if count != 0 and count % 3 != 0:
-        log(caller, '铸造材料已用完，开始执行结束前分解')
+        logging.info('铸造材料已用完，开始执行结束前分解')
         foundry_dec(hwnd, level=level, dec_qlty=dec_qlty)
 
 
@@ -1862,7 +1853,7 @@ def check_travel(hwnd, mode):
 # 兑换码
 def redeem(hwnd, mode, caller=None, codes=None):
     if not is_main_view(hwnd, mode):
-        log(caller, '当前不处于主界面，忽略处理')
+        logging.info('当前不处于主界面，忽略处理')
         return
     # 点击头像
     my_mouse.left_click(hwnd, (45, 110))

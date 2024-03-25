@@ -43,7 +43,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.show()
         _thread.start_new_thread(self.loginSignal.emit, ())
 
-
     @staticmethod
     def onRightTop():
         target_hwnd = gm_func.get_hwnd()

@@ -163,7 +163,7 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="tab_1">
      <attribute name="title">
       <string>妖窟</string>
      </attribute>
@@ -210,7 +210,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>195</y>
+        <y>230</y>
         <width>121</width>
         <height>20</height>
        </rect>
@@ -236,7 +236,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>431</x>
-        <y>156</y>
+        <y>191</y>
         <width>42</width>
         <height>22</height>
        </rect>
@@ -287,7 +287,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>160</y>
+        <y>195</y>
         <width>101</width>
         <height>16</height>
        </rect>
@@ -339,7 +339,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>125</y>
+        <y>160</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -409,8 +409,24 @@ p, li { white-space: pre-wrap; }
        <string>中</string>
       </property>
      </widget>
+     <widget class="QCheckBox" name="check_boss_type_fish">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>124</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>鱼</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>斗技</string>
      </attribute>
@@ -794,7 +810,7 @@ p, li { white-space: pre-wrap; }
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton">
+     <widget class="QRadioButton" name="radio_week">
       <property name="geometry">
        <rect>
         <x>320</x>
@@ -810,7 +826,7 @@ p, li { white-space: pre-wrap; }
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton_2">
+     <widget class="QRadioButton" name="radio_common">
       <property name="geometry">
        <rect>
         <x>320</x>

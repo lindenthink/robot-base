@@ -101,10 +101,11 @@ def clearWorkDir():
 
 def retry(func, count=5, **kwargs):
     num = 0
-    result = func(**kwargs)
+    result = False
     while not result and num < count:
+        result = func(kwargs)
+        num += 1
         time.sleep(1)
-        count += 1
     return result
 
 

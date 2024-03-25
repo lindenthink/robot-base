@@ -118,13 +118,13 @@ def modifyPwd(username, oldpwd, newpwd, game=None, enc_key=None):
     return post(username, oldpwd, path=path, body=req, enc_key=enc_key)
 
 
-def checkRedeem(username, password, game=None, enc_key=None):
+def checkRedeem(username, password, game=None, enc_key=None, data_type='WEEKLY'):
     path = '/redeem/check'
     req = {
         'game': game,
         'username': username,
         'data': {
-            'type': 'WEEKLY',
+            'type': data_type,
         }
     }
     return post(username, password, path=path, body=req, enc_key=enc_key)
