@@ -5,6 +5,7 @@ from PyQt6.QtCore import QThread, QWaitCondition, QMutex
 
 from common import my_window
 from common.my_cfg import ConfigKey
+from gm import gm_func
 from ui.service.IconTypeEnum import IconTypeEnum
 
 
@@ -24,6 +25,7 @@ class MainloopThread(QThread):
         logging.info(f'开始以{mode_name}执行')
         while True:
             try:
+                gm_func.check_round(gm_func.get_hwnd(), mode=mode)
                 if self.cfgMgr.checkReset():
                     self.mainWnd.emitReset()
                     logging.warning('检测到当日首次执行，已自动重置所有任务')
