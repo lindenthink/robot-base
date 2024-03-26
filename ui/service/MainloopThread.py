@@ -23,6 +23,10 @@ class MainloopThread(QThread):
         mode = self.cfgMgr.getArg(ConfigKey.args_mode)
         mode_name = '前台模式' if mode == my_window.MODE_FG else '后台模式'
         logging.info(f'开始以{mode_name}执行')
+        check_pass = gm_func.readiness_check(gm_func.get_hwnd(), mode=mode)
+        if not check_pass:
+            self.mainWnd.onStop()
+            return
         while True:
             try:
                 gm_func.check_round(gm_func.get_hwnd(), mode=mode)
@@ -34,6 +38,9 @@ class MainloopThread(QThread):
                         break
                     if task.isDone():
                         continue
+                    if not gm_func.is_main_view(gm_func.get_hwnd(), mode=mode):
+                        break
+                    gm_func.check_notice(gm_func.get_hwnd(), mode=mode)
                     self.mainWnd.emitIcon(IconTypeEnum.running, task.name)
                     if task.run(self.cfgMgr.args):
                         self.cfgMgr.saveTasks()

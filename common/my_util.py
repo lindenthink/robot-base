@@ -103,7 +103,7 @@ def retry(func, count=5, **kwargs):
     num = 0
     result = False
     while not result and num < count:
-        result = func(kwargs)
+        result = func(**kwargs)
         num += 1
         time.sleep(1)
     return result
