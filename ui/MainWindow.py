@@ -249,14 +249,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def onModifyPwd(self):
         text, ok = QInputDialog.getText(self, '菩提思 | 修改密码', "请输入新密码：", QLineEdit.EchoMode.Password)
         if ok:
-            if self.username is None:
+            if self.loginInfo.username is None:
                 QMessageBox.critical(self, '操作失败', '修改密码失败，需要登陆后方可进行此操作。')
                 return
             new_password = str(text)
             if new_password is None or len(new_password) < 6:
                 QMessageBox.critical(self, '操作失败', '修改密码失败，密码不能为空并且长度不少于6位。')
                 return
-            res = my_service.modifyPwd(self.username, self.password, new_password, game=self.code, enc_key=self.encKey)
+            res = my_service.modifyPwd(self.loginInfo.username, self.loginInfo.password, new_password,
+                                       game=self.loginInfo.gmCode, enc_key=self.loginInfo.encKey)
             if res['code'] == -1:
                 QMessageBox.critical(self, '操作失败', f'{res["message"]}')
                 return
@@ -268,14 +269,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def onRecharge(self):
         text, ok = QInputDialog.getText(self, '菩提思 | 充值', "请输入充值码:")
         if ok:
-            if self.username is None:
+            if self.loginInfo.username is None:
                 QMessageBox.critical(self, '操作失败', '修改密码失败，需要登陆后方可进行此操作。')
                 return
             cdk = str(text)
             if cdk is None or len(cdk) < 16:
                 QMessageBox.critical(self, '操作失败', '充值码格式错误，请确认并重新操作。')
                 return
-            res = my_service.activate(self.username, code=cdk, game=self.code, enc_key=self.encKey)
+            res = my_service.activate(self.loginInfo.username, code=cdk, game=self.loginInfo.gmCode,
+                                      enc_key=self.loginInfo.encKey)
             if res['code'] == -1:
                 QMessageBox.critical(self, '操作失败', f'{res["message"]}')
             else:
