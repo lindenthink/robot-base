@@ -9,7 +9,7 @@ from ui.service.LoginInfo import LoginInfo
 
 class CheckThread(QThread):
     interval = 1
-    isRunning = True
+    isStop = False
 
     def __init__(self, mainWnd):
         super().__init__()
@@ -18,7 +18,7 @@ class CheckThread(QThread):
 
     def run(self):
         count = 0
-        while self.isRunning:
+        while not self.isStop:
             if self.loginInfo.username is not None:
                 self.checkAccount()
                 count += 1
@@ -29,7 +29,7 @@ class CheckThread(QThread):
             self.sleep(self.interval)
 
     def stop(self):
-        self.isRunning = False
+        self.isStop = True
 
     def checkAccount(self):
         expireTime = my_util.parseDateTime(self.loginInfo.expireTime)
