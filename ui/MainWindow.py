@@ -33,6 +33,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     loginInfo = LoginInfo()
     singleCfgThread = None
+    checkThread = None
 
     def __init__(self):
         super().__init__()
@@ -224,8 +225,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.singleCfgThread.init()
 
         logging.info(f'欢迎{self.loginInfo.username}，您的账号于{self.loginInfo.expireTime}到期，游戏愉快 (*^▽^*)')
-        checkThread = CheckThread(self)
-        checkThread.start()
+        self.checkThread = CheckThread(self)
+        self.checkThread.start()
         # 触发版本更新提示
         self.onCheckVersion(active=False)
 
@@ -235,6 +236,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def onLogout(self):
         if self.isRun:
             self.onStop()
+        self.checkThread.stop()
         self.group_run.setEnabled(False)
         self.list_todo.clear()
         self.menu_login.setEnabled(True)
