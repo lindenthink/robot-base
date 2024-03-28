@@ -1516,16 +1516,6 @@ def check_triple(hwnd, mode):
         time.sleep(0.5)
 
 
-# 获取窗口
-def get_hwnd(*args):
-    return my_window.find('道天录')
-
-
-# 获取多个窗口
-def get_hwnds():
-    return my_window.enum_all(name='道天录')
-
-
 # 根据指示箭头点击建筑
 def enter_pointing(hwnd, mode=my_window.MODE_BG, x_offset=10, y_offset=120):
     loc = my_window.wait_appear(hwnd=hwnd, template_path=con.ID_POINTING, mode=mode, timeout=10)
@@ -1662,61 +1652,6 @@ def mine(hwnd, mode=None, concurrent=3):
     rightdown_exit(hwnd)
     # 退出仙盟
     union_exit(hwnd, mode)
-    return True
-
-
-# 星域矿脉
-def link_mine(hwnd, mode=None):
-    loc = my_window.find_click(hwnd, mode, template_path=con.ID_LINK_ENTRY)
-    if loc is None:
-        logging.info('未发现联动入口，忽略处理')
-        return True
-    # 异化
-    my_mouse.left_click(hwnd, (180, 780))
-    time.sleep(0.5)
-    count = 0
-    while True:
-        my_mouse.left_click(hwnd, (220, 420))
-        time.sleep(0.5)
-        loc = my_window.wait_appear(hwnd=hwnd, template_path=con.ID_LINK_EXPLORE, mode=mode)
-        if loc is None:
-            logging.info('进入域外天时,本次忽略处理')
-            rightdown_exit(hwnd)
-            return False
-        time.sleep(1)
-        # 拉到中间
-        my_mouse.left_drag(hwnd, (355, 380), (200, 380))
-        time.sleep(0.5)
-        end = False
-        while True:
-            loc = my_window.find_pic(hwnd, mode, template_path=con.ID_LINK_MINE_EMPTY)
-            if loc is None:
-                my_mouse.left_drag(hwnd, (220, 500), (220, 400))
-                # 检测起始点
-                loc = my_window.find_pic(hwnd, mode, template_path=con.ID_LINK_END)
-                if loc is not None:
-                    end = True
-                    break
-                continue
-            break
-        if end:
-            break
-        my_mouse.left_click(hwnd, (loc[0] + 10, loc[1] + 10))
-        time.sleep(1)
-        seat_loc = my_window.find_click(hwnd=hwnd, template_path=con.ID_MINE_SEAT, mode=mode)
-        if seat_loc is not None:
-            my_mouse.left_click(hwnd, (220, 670))
-            time.sleep(0.5)
-        rightdown_exit(hwnd)
-        my_mouse.left_click(hwnd, (355, 785))
-        time.sleep(3)
-        count += 1
-        if count >= 5:
-            break
-    # 退出
-    my_mouse.left_click(hwnd, (355, 785))
-    time.sleep(3)
-    rightdown_exit(hwnd)
     return True
 
 

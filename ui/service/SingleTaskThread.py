@@ -70,7 +70,8 @@ class SingleTaskThread(QThread):
             self.mainWnd.check_boss_type_fish.setChecked('鱼' in sub_cfg[SingleKeyEnum.boss_type.value])
             self.mainWnd.check_boss_farm.setChecked(sub_cfg[SingleKeyEnum.boss_farm.value])
             self.mainWnd.spin_boss_farm_intv.setValue(sub_cfg[SingleKeyEnum.boss_farm_intv.value])
-            self.mainWnd.check_boss_use_money.setChecked(sub_cfg[SingleKeyEnum.boss_farm_cost.value])
+            if SingleKeyEnum.boss_farm_cost.value in sub_cfg:
+                self.mainWnd.check_boss_use_money.setChecked(sub_cfg[SingleKeyEnum.boss_farm_cost.value])
 
     def run_1(self):
         sub_cfg = dict()
